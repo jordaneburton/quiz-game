@@ -19,37 +19,27 @@ const question7 = new quizQuestion()
 // *NOTE* technically this can be done with a constructor, 
 //          I just don't remember the syntax at the moment
 
-question1.question = ("First Sample Question Text to Fill Space on Webpage");
-question1.correctAns = ("Correct Answer");
-question1.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
+question1.question = ("Inside which HTML element do we put the JavaScript?");
+question1.correctAns = ("<script>");
+question1.possibleAns.push("<script>", "<javascript>", "<js>", "<scripting>");
 questionSet.push(question1);
 
-question2.question = ("Second Sample Question Text to Fill Space on Webpage");
-question2.correctAns = ("Correct Answer");
-question2.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
+question2.question = ("Where is the correct place to insert a JavaScript?");
+question2.correctAns = ("Both <head> and <body> sections");
+question2.possibleAns.push("Both <head> and <body> sections", "<head> section", "<body> section", "<meta> section");
 questionSet.push(question2);
 
-question3.question = ("Third Sample Question Text to Fill Space on Webpage");
-question3.correctAns = ("Correct Answer");
-question3.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
+question3.question = ("How do you write 'Hello World' in an alert box?");
+question3.correctAns = ("alert('Hello World')");
+question3.possibleAns.push("alert('Hello World')", "msgbox('Hello World')", "alertBox('Hello World')", "alertBox='Hello World'");
 questionSet.push(question3);
 
-question4.question = ("Fourth Sample Question Text to Fill Space on Webpage");
-question4.correctAns = ("Correct Answer");
-question4.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
+question4.question = ("How do you create a function?");
+question4.correctAns = ("function myFunction()");
+question4.possibleAns.push("function myFunction()", "function:myFunction()", "function=myFunction()", "myFunction():function");
 questionSet.push(question4);
 
-question5.question = ("Fifth Sample Question Text to Fill Space on Webpage");
-question5.correctAns = ("Correct Answer");
-question5.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
+question5.question = ("How do you call a function named 'myFunction'?");
+question5.correctAns = ("myFunction()");
+question5.possibleAns.push("myFunction()", "call myFunction()", "call function myFunction", "Call.myFunction()");
 questionSet.push(question5);
-
-question6.question = ("Sixth Sample Question Text to Fill Space on Webpage");
-question6.correctAns = ("Correct Answer");
-question6.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
-questionSet.push(question6);
-
-question7.question = ("Seventh Sample Question Text to Fill Space on Webpage");
-question7.correctAns = ("Correct Answer");
-question7.possibleAns.push("Correct Answer", "Correct", "Incorrect", "Answer");
-questionSet.push(question7);

@@ -3,6 +3,7 @@ const submitButton = document.querySelector("#submit");
 const scoreForm = document.querySelector("form");
 const highscoreBox = document.querySelector("#highscore-box");
 
+// go through each score and display it in highscore box
 function displayScores() {
     const highscores = JSON.parse(localStorage.getItem("scores"));
     highscores.forEach(element => {
