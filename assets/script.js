@@ -29,7 +29,7 @@ function finishQuiz() {
         localStorage.setItem("scores", JSON.stringify([]))
     }
     localStorage.setItem("latestScore", timeLeft);
-    // window.location.replace('./highscores.html');
+    window.location.replace('./highscores.html');
 }
 
 // function to count down the timer

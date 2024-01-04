@@ -10,8 +10,6 @@ button {
     display: none;
 }
 
-#timer {
-    /* position: absolute;
-    top: 20px;
-    right: 20px; */
+#highscore-box {
+    display: none;
 }
