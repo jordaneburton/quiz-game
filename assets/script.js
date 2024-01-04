@@ -81,10 +81,10 @@ function checkAnswer(event) {
     const answer = event.target.textContent;
 
     if (answer == currentQuestion.correctAns){
-        // if CORRECT
+        // if CORRECT answer
         pickRandomQuestion();
     } else {
-        // if WRONG
+        // if WRONG answer
         wrongAlert.style.display = "block";
         timeLeft = timeLeft - 5;
         timerEl.textContent = timeLeft;  
@@ -128,6 +128,7 @@ resetButton.onclick = function resetGame() {
     clearInterval(timeInterval);
 }
 
+// event listener for answer choices to be clicked
 Array.from(answersArray).forEach(function(event) {
     event.addEventListener("click", checkAnswer);
 })
