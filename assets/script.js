@@ -1,32 +1,59 @@
-const quizBox = document.querySelector("#quiz-box");
+const quizBoxEl = document.querySelector("#quiz-box");
 const startButton = document.querySelector("#start-game");
 const resetButton = document.querySelector("#reset-game");
+const questionEl = document.querySelector(".question");
+const answersArray = document.querySelectorAll(".answer-choices button");
+const timerEl = document.createElement("div");
 
+// 'indexArr' will be an array of numbers representing our available questions
+// and their corresponding indices, to avoid repeating questions
+let indexArr = [];
+
+// button click event to start the game
 startButton.onclick = function startGame() {
-    quizBox.style.display = "block";
+    // hides start button and shows quiz box and reset button
+    quizBoxEl.style.display = "block";
     resetButton.style.display = "block";
-    
     startButton.style.display = "none";
-    // spawn in timer element
+
+    // Assign or "initialize" indexArr everytime the quiz starts
+    indexArr = Array.from(Array(questionSet.length).keys());
+    
+    // creates timer element
+    document.body.append(timerEl);
+    timerEl.setAttribute("id", "timer");
+    timerEl.textContent = "timer";
 }
 
-resetButton.onclick = function startGame() {
+// button click event to restart the game
+resetButton.onclick = function resetGame() {
+    // reveals start button and hides quiz box and reset button
     startButton.style.display = "block";
-
-    quizBox.style.display = "none";
+    quizBoxEl.style.display = "none";
     resetButton.style.display = "none";
-    // delete timer element
+
+    // removes timer element
+    timerEl.remove();
 }
 
+// array of objects created in separate "questions.js" script
+// each object will hold a question and answer choices with a correct answer
+// answer choices will be in an array(including correct answer), but correct answer will ALSO be its own separate property
+// if selected answer choice is EQUAL to correct answer property, RETURN CORRECT
+// if not equal, RETURN WRONG
 
-// array of objects.
-// each object will hold a question and answer choices and correct answer
-// answer choices will be in an array, AND correct answer will be its own separate string
-// if selected answer choice is SAME as correct answer property, RETURN CORRECT
-// if not the same, RETURN WRONG
-class quizQuestion {
-    question;
-    correctAns;
-    possibleAns = [];
+// function to fill the quiz box content with a set question and its answer choices
+function setQuestion(index) {
+    const currentQuestion = questionSet[index];
+    for(let i=0; i < answersArray.length; i++) {
+        answersArray[i].textContent = currentQuestion.possibleAns[i];
+    }
+    questionEl.textContent = currentQuestion.question;
 }
 
+// function to pick a random question for the quiz
+function pickRandomQuestion() {    
+    // randomIndex picks a random number from our 'indexArr' array
+    const randomIndex = Math.floor(Math.random() * indexArr.length);
+    setQuestion(randomIndex);
+}

@@ -1,3 +1,9 @@
 #quiz-box, #reset-game{
     display: none;
 }
+
+#timer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
