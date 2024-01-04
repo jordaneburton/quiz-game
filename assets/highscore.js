@@ -3,6 +3,8 @@ const submitButton = document.querySelector("#submit");
 const scoreForm = document.querySelector("form");
 const highscoreBox = document.querySelector("#highscore-box");
 
+scoreForm.querySelector("div").textContent = "Your score is " + localStorage.getItem("latestScore");
+
 // go through each score and display it in highscore box
 function displayScores() {
     const highscores = JSON.parse(localStorage.getItem("scores"));
@@ -19,8 +21,8 @@ submitButton.onclick = function submitScore() {
     event.preventDefault();
 
     // check for any input in initials box (cannot be NOTHING)
-    scoreName = scoreForm.querySelector("#initials").value;
-    if (scoreName != "") {
+    scoreName = scoreForm.querySelector("#initials").value.trim();
+    if (scoreName != "" && scoreName.length < 4) {
         const score = {
             initials: scoreName,
             points: localStorage.getItem("latestScore") 
@@ -30,11 +32,26 @@ submitButton.onclick = function submitScore() {
         const scoreExists = (element) => {
             return (element.initials == scoreName && element.points == localStorage.getItem("latestScore"));
         }
-        const existingScores = JSON.parse(localStorage.getItem("scores")); 
+        let existingScores = JSON.parse(localStorage.getItem("scores")); 
         
-        // if so, do not upload the score to localStorage      
+        // if it doesn't, upload the score to localStorage      
         if (!existingScores.some(scoreExists)) {
-            existingScores.push(score);
+            
+            // orders the scores on the scoreboard
+            if (existingScores.length == 0) {
+                existingScores.push(score);
+            } else {
+                for (let i=0; i < existingScores.length; i++) {
+                    if (score.points > existingScores[i].points) {
+                        existingScores.splice(i, 0, score);
+                        break;
+                    }
+                    if (i == (existingScores.length - 1)) {
+                        existingScores.push(score);
+                        break;
+                    }
+                }
+            }
             localStorage.setItem("scores", JSON.stringify(existingScores));
         }
         
@@ -44,7 +61,7 @@ submitButton.onclick = function submitScore() {
         displayScores();
 
     } else {
-        alert("Please enter your initials.")
+        alert("Please enter your initials. Must be 3 characters or less.")
     }
 }
 
