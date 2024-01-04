@@ -2,8 +2,16 @@
     display: none;
 }
 
+button {
+    display: block;
+}
+
+#wrong-alert {
+    display: none;
+}
+
 #timer {
-    position: absolute;
+    /* position: absolute;
     top: 20px;
-    right: 20px;
+    right: 20px; */
 }
