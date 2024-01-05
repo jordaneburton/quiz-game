@@ -108,7 +108,7 @@ startButton.onclick = function startGame() {
 
     // creates timer element
     // document.body.append(timerEl);
-    document.body.insertBefore(timerEl, wrongAlert);
+    document.body.querySelector("main").insertBefore(timerEl, wrongAlert);
     timerEl.setAttribute("id", "timer");
     timeLeft = questionSet.length * 10;
     timerEl.textContent = timeLeft;
