@@ -102,6 +102,9 @@ startButton.onclick = function startGame() {
     resetButton.style.display = "block";
     startButton.style.display = "none";
 
+    // adds quiz-box styling from bootstrap
+    quizBoxEl.classList.add('d-inline-flex', 'justify-content-center')
+
     // Assign or "initialize" indexArr everytime the quiz starts
     indexArr = Array.from(Array(questionSet.length).keys());
     pickRandomQuestion();
@@ -117,6 +120,9 @@ startButton.onclick = function startGame() {
 
 // button click event to restart the game
 resetButton.onclick = function resetGame() {
+    // removes quiz-box styling from bootstrap
+    quizBoxEl.classList.remove('d-inline-flex', 'justify-content-center')
+
     // reveals start button and hides quiz box and reset button
     startButton.style.display = "block";
     quizBoxEl.style.display = "none";
