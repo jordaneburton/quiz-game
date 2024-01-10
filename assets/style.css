@@ -5,20 +5,16 @@
     --quad-color: orangered;
 }
 
-#quiz-box, #reset-game{
+#quiz-box, #reset-game, #wrong-alert, #highscore-box{
     display: none;
 }
 
-button {
+.progress {
+    visibility: hidden;
+}
+
+button{
     display: block;
-}
-
-#wrong-alert {
-    display: none;
-}
-
-#highscore-box {
-    display: none;
 }
 
 .quiz-question {
@@ -38,17 +34,14 @@ ul {
 
 .btn-choice:hover {
     background-color: var(--quad-color);
-    color: white;
-}
-
-.btn-choice:focus {
-    background-color: var(--quad-color);
-    color: white;
+    color:white
 }
 
 .btn-set-quiz {
     background-color: var(--tert-color);
     color: white;
+}
 
-    /* text-shadow: 2px 2px var(--quad-color); */
+.bg-progress {
+    background-color: var(--quad-color);
 }

@@ -5,6 +5,8 @@ const wrongAlert = document.querySelector("#wrong-alert")
 const questionEl = document.querySelector(".question");
 const answersArray = document.querySelectorAll(".answer-choices > li");
 const timerEl = document.createElement("div");
+const progressEl = document.querySelector(".progress");
+const progressBarEl = document.querySelector(".progress-bar");
 
 // 'indexArr' will be an array of numbers representing our available questions
 // and their corresponding indices, to avoid repeating questions
@@ -46,8 +48,20 @@ function countdown() {
     }, 1000);
 }
 
+// function to update progress bar
+function updateProgress() {
+    // find total questions and divide by questions left
+    const totalQuestions = questionSet.length;
+    const questionsLeft = indexArr.length;
+    const progress = (totalQuestions - questionsLeft)/totalQuestions * 100;
+
+    // update progress bar element
+    progressBarEl.style.width = `${progress}%`;
+}
+
 // function to fill the quiz box content with a set question and its answer choices
 function setQuestion(index) {
+    updateProgress();
     currentQuestion = questionSet[indexArr[index]];
     let answerCount = answersArray.length;
     let answers = Array.from(Array(answerCount).keys())
@@ -91,7 +105,6 @@ function checkAnswer(event) {
     }
 }
 
-
 // ----------- EVENTS SECTION -----------
 
 
@@ -101,6 +114,7 @@ startButton.onclick = function startGame() {
     quizBoxEl.style.display = "block";
     resetButton.style.display = "block";
     wrongAlert.style.display = "block";
+    progressEl.style.visibility = "visible";
     startButton.style.display = "none";
 
     // adds quiz-box styling from bootstrap
@@ -130,6 +144,7 @@ resetButton.onclick = function resetGame() {
     quizBoxEl.style.display = "none";
     resetButton.style.display = "none";
     wrongAlert.style.display = "none";
+    progressEl.style.visibility = "hidden";
 
     // removes timer element
     timerEl.remove();
