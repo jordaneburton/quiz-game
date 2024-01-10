@@ -1,3 +1,10 @@
+:root {
+    --prim-color: orange;
+    --sec-color: yellow;
+    --tert-color: blue;
+    --quad-color: orangered;
+}
+
 #quiz-box, #reset-game{
     display: none;
 }
@@ -12,4 +19,36 @@ button {
 
 #highscore-box {
     display: none;
+}
+
+.quiz-question {
+    background-color: var(--prim-color);
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.btn-choice {
+    background-color: var(--sec-color);
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+
+.btn-choice:hover {
+    background-color: var(--quad-color);
+    color: white;
+}
+
+.btn-choice:focus {
+    background-color: var(--quad-color);
+    color: white;
+}
+
+.btn-set-quiz {
+    background-color: var(--tert-color);
+    color: white;
+
+    /* text-shadow: 2px 2px var(--quad-color); */
 }

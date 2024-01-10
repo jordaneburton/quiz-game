@@ -70,7 +70,7 @@ function pickRandomQuestion() {
         clearInterval(timeInterval);
         finishQuiz();
     } else {
-        wrongAlert.style.display = "none";
+        wrongAlert.style.visibility = "hidden";
         const randomIndex = Math.floor(Math.random() * indexArr.length);
         setQuestion(randomIndex);
     }
@@ -85,7 +85,7 @@ function checkAnswer(event) {
         pickRandomQuestion();
     } else {
         // if WRONG answer
-        wrongAlert.style.display = "block";
+        wrongAlert.style.visibility = "visible";
         timeLeft = timeLeft - 5;
         timerEl.textContent = timeLeft;  
     }
@@ -100,6 +100,7 @@ startButton.onclick = function startGame() {
     // hides start button and shows quiz box and reset button
     quizBoxEl.style.display = "block";
     resetButton.style.display = "block";
+    wrongAlert.style.display = "block";
     startButton.style.display = "none";
 
     // adds quiz-box styling from bootstrap
@@ -110,9 +111,10 @@ startButton.onclick = function startGame() {
     pickRandomQuestion();
 
     // creates timer element
-    // document.body.append(timerEl);
-    document.body.querySelector("main").insertBefore(timerEl, wrongAlert);
+    // document.body.querySelector("footer").insertBefore(timerEl, resetButton);
+    wrongAlert.after(timerEl);
     timerEl.setAttribute("id", "timer");
+    timerEl.classList.add('fs-5', 'col-12', 'text-center');
     timeLeft = questionSet.length * 10;
     timerEl.textContent = timeLeft;
     countdown();
