@@ -11,16 +11,18 @@
 </head>
 
 <body>
-    <main class="container d-flex flex-column">
+    <main class="container d-flex flex-column flex-wrap align-content-center">
         <h1 class="display-2 row justify-content-center my-5">Highscores</h1>
-        <form>
-            <div></div>
-            <input id="initials" type="text" placeholder="Initials" />
-            <button id="submit">Submit</button>
+        <form class="row col-12 col-md-8 justify-content-center">
+            <div class="display-6 text-center py-2 mt-3"></div>
+            <input id="initials" type="text" placeholder="Initials" class="col-12 col-md-9 d-inline rounded-pill p-1 text-center my-3 align-middle"/>
+            <button id="submit" class="col-6 col-md-3 btn btn-lg rounded-pill btn-set-quiz fw-semibold my-md-3 mb-3">Submit</button>
         </form>
-        <div id="highscore-box">
+        <div id="highscore-box" class="row col-12 col-md-8 d-flex flex-column flex-wrap align-content-center">
         </div>
-        <button id="return">Go Back</button>
+        <footer class="row justify-content-center">
+            <button id="return" class="col-4 col-md-3 btn btn-lg rounded-pill btn-set-quiz fw-semibold py-md-1 my-5">Go Back</button>
+        </footer>
     </main>
         
     <script src="./assets/highscore.js"></script>

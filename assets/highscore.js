@@ -10,7 +10,9 @@ function displayScores() {
     const highscores = JSON.parse(localStorage.getItem("scores"));
     highscores.forEach(element => {
         const eachScoreEl = document.createElement("div");
-        eachScoreEl.textContent = element.initials + ": " + element.points + " pts";
+        eachScoreEl.textContent = `${element.initials}: ${element.points} pts`;
+        eachScoreEl.classList.add('text-center');
+        eachScoreEl.classList.add('fs-3');
         highscoreBox.append(eachScoreEl);
     });
 }
