@@ -1,3 +1,4 @@
+const titleEl = document.querySelector("h1");
 const quizBoxEl = document.querySelector("#quiz-box");
 const startButton = document.querySelector("#start-game");
 const resetButton = document.querySelector("#reset-game");
@@ -117,8 +118,9 @@ startButton.onclick = function startGame() {
     progressEl.style.visibility = "visible";
     startButton.style.display = "none";
 
-    // adds quiz-box styling from bootstrap
+    // adds title quiz-box styling from bootstrap
     quizBoxEl.classList.add('d-inline-flex', 'justify-content-center')
+    titleEl.classList.add('d-none', 'd-md-block')
 
     // Assign or "initialize" indexArr everytime the quiz starts
     indexArr = Array.from(Array(questionSet.length).keys());
@@ -128,7 +130,7 @@ startButton.onclick = function startGame() {
     // document.body.querySelector("footer").insertBefore(timerEl, resetButton);
     wrongAlert.after(timerEl);
     timerEl.setAttribute("id", "timer");
-    timerEl.classList.add('fs-5', 'col-12', 'text-center');
+    timerEl.classList.add('fs-5', 'col-12', 'text-center', 'my-md-3');
     timeLeft = questionSet.length * 10;
     timerEl.textContent = timeLeft;
     countdown();
@@ -136,8 +138,9 @@ startButton.onclick = function startGame() {
 
 // button click event to restart the game
 resetButton.onclick = function resetGame() {
-    // removes quiz-box styling from bootstrap
+    // removes title and quiz-box styling from bootstrap
     quizBoxEl.classList.remove('d-inline-flex', 'justify-content-center')
+    titleEl.classList.remove('d-none', 'd-md-block')
 
     // reveals start button and hides quiz box and reset button
     startButton.style.display = "block";

@@ -34,11 +34,16 @@ ul {
 
 .btn-choice:hover {
     background-color: var(--quad-color);
-    color:white
+    color: white;
 }
 
 .btn-set-quiz {
     background-color: var(--tert-color);
+    color: white;
+}
+
+.btn-set-quiz:hover {
+    background-color: var(--quad-color);
     color: white;
 }
 
