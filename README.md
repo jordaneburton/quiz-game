@@ -1,5 +1,5 @@
 # Quiz-Game
-A website built with Javascript where you can take a short Javascript quiz: [Click to go to website](https://jordaneburton.github.io/quiz-game/)
+A Javascript app styled with Bootstrap where you can take a short Javascript quiz: [Click to go to website](https://jordaneburton.github.io/quiz-game/)
 
 ## Description
 
